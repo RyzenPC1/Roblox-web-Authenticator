@@ -1,9 +1,10 @@
 const bannedWords = [
-  "idiot",
-  "dum",
-  "fan",
+  "nigga",
+  "nigger",
+  "pussy",
   "fuck",
   "bitch"
+  "balls"
 ];
 
 const usernameInput = document.getElementById("user");
